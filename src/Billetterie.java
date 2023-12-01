@@ -15,6 +15,7 @@ public class Billetterie {
             semaphore.acquire();
             if (nbBillets > 0) {
                 nbBillets--;
+                System.out.println(Thread.currentThread().getName() + " à acheté un billet. Il reste " + nbBillets + " billets.");
                 return true;
             } else {
                 return false; // Plus de billets disponibles

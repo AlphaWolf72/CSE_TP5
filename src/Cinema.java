@@ -1,14 +1,8 @@
 public class Cinema {
-    private static final int CLIENTS = 1200; // Nombre de clients
+    private static final int CLIENTS = 300; // Nombre de clients
 
     private SalleProjection salleProjection;
     private Billetterie billetterie;
-
-    private int currentClient;
-
-    Cinema() {
-        this.currentClient = 0;
-    }
 
     public SalleProjection getSalleProjection() {
         return salleProjection;
@@ -16,18 +10,6 @@ public class Cinema {
 
     public Billetterie getBilletterie() {
         return this.billetterie;
-    }
-
-    public int getCurrentClient() {
-        return currentClient;
-    }
-
-    public void addClient() {
-        this.currentClient++;
-    }
-
-    public void delClient() {
-        this.currentClient--;
     }
 
 
@@ -43,11 +25,12 @@ public class Cinema {
 
         // Créer des clients et les démarrer dans des threads distincts
         for (int i = 1; i <= CLIENTS; i++) {
-            cinema.addClient();
-            new Client("Client " + i, cinema).start();
+            new Client(cinema).start();
         }
 
         // Créer et démarrer le thread de l'employé
-        new Employe(cinema).start();
+        Employe employe = new Employe(cinema);
+        employe.setDaemon(true);
+        employe.start();
     }
 }
