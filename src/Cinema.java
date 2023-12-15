@@ -4,15 +4,25 @@ public class Cinema {
     private SalleProjection salleProjection;
     private Billetterie billetterie;
 
+    /**
+     * Retourne la salle de projection
+     * @return la salle de projection
+     */
     public SalleProjection getSalleProjection() {
         return salleProjection;
     }
 
+    /**
+     * Retourne la billetterie
+     * @return la billetterie
+     */
     public Billetterie getBilletterie() {
         return this.billetterie;
     }
 
-
+    /**
+     * Méthode main
+     */
     public static void main(String[] args) {
 
         Cinema cinema = new Cinema();

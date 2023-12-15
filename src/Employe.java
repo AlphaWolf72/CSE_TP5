@@ -1,10 +1,18 @@
 public class Employe extends Thread {
     private Cinema cinema;
 
+    /**
+     * Constructeur de l'employé
+     * @param cinema le cinéma
+     */
     public Employe(Cinema cinema) {
         this.cinema = cinema;
     }
 
+    /**
+     * Méthode run
+     * L'employé ouvre la salle, lance la projection, vide la salle et nettoie la salle
+     */
     @Override
     public void run() {
         while(true) {
